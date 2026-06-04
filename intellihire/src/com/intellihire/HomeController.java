@@ -1,5 +1,7 @@
 package com.intellihire;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.ModelAttribute;
+
 
 import java.util.List;
 import jakarta.servlet.http.HttpSession;
@@ -107,17 +109,11 @@ public class HomeController {
 
     @PostMapping("/update")
     public String updateUser(
-            @RequestParam int id,
-            @RequestParam String name,
-            @RequestParam String email,
-            @RequestParam String password) {
+            @ModelAttribute User user,
+            @RequestParam(required = false) String newPassword) {
 
-        User user = new User();
-        user.setId(id);
-        user.setName(name);
-        user.setEmail(email);
-        user.setPassword(password);
-        service.updateUser(user);
+        service.updateUser(user, newPassword);
+
         return "redirect:/users";
     }
 
@@ -174,7 +170,8 @@ public class HomeController {
         System.out.println("Size: " + Files.size(filePath));
 
         user.setResume(fileName);
-        service.updateUser(user);
+        user.setResume(fileName);
+        service.updateUser(user, null);
         session.setAttribute("loggedUser", user);
         redirectAttributes.addFlashAttribute(
                 "success",

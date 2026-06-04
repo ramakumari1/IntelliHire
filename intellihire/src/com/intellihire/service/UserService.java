@@ -84,20 +84,21 @@ public class UserService {
         return repo.findById(id).orElse(null);
     }
 
-    public void updateUser(User user) {
+    public void updateUser(User user, String newPassword) {
 
-        User existingUser = repo.findById(user.getId()).orElse(null);
+        User existingUser =
+                repo.findById(user.getId()).orElse(null);
 
         if(existingUser != null){
 
             existingUser.setName(user.getName());
             existingUser.setEmail(user.getEmail());
 
-            if(user.getPassword() != null &&
-                    !user.getPassword().trim().isEmpty()){
+            if(newPassword != null &&
+                    !newPassword.trim().isEmpty()){
 
                 existingUser.setPassword(
-                        encoder.encode(user.getPassword())
+                        encoder.encode(newPassword)
                 );
             }
 
