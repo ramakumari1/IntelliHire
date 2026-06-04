@@ -46,6 +46,20 @@ public class UserService {
 
         User user = repo.findByEmail(email);
 
+        System.out.println("EMAIL = " + email);
+
+        if(user != null){
+            System.out.println("DB PASSWORD = " + user.getPassword());
+
+            boolean match =
+                    encoder.matches(
+                            password,
+                            user.getPassword()
+                    );
+
+            System.out.println("MATCH = " + match);
+        }
+
         if(user != null &&
                 encoder.matches(
                         password,
@@ -92,6 +106,7 @@ public class UserService {
             repo.save(existingUser);
         }
     }
+
 
     public List<User> searchUsers(String name) {
         return repo.findByNameContaining(name);

@@ -99,10 +99,10 @@
 
                     <br>
 
-                    <div th:if="${session.loggedUser.role == 'USER'}">
+                    <div th:if="${session.loggedUser != null and session.loggedUser.role == 'USER'}">
 
                         <a th:if="${#lists.contains(applications.![jobTitle], j.title) == false}"
-                           th:href="@{/applyJob(title=${j.title},company=${j.company})}"
+                           th:href="@{/applyJob(id=${j.id})}"
                            class="btn btn-success btn-sm">
 
                             Apply
@@ -119,7 +119,7 @@
 
                     </div>
 
-                    <div th:if="${session.loggedUser.role == 'ADMIN'}">
+                    <div th:if="${session.loggedUser != null and session.loggedUser.role == 'USER'}">
 
                         <a th:href="@{/deleteJob(id=${j.id})}"
                            class="btn btn-danger btn-sm">

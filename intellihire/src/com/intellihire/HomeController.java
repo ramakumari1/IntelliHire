@@ -37,11 +37,13 @@ public class HomeController {
     private JobService jobService;
     @Autowired
     private ApplicationService applicationService;
+    private Integer jobId;
 
     @GetMapping("/")
     public String home() {
         return "index";
     }
+
 
 
     @PostMapping("/register")
@@ -311,6 +313,9 @@ public class HomeController {
     public String jobs(Model model,
                        HttpSession session) {
 
+        if(session.getAttribute("loggedUser") == null){
+            return "redirect:/login";
+        }
         User user =
                 (User) session.getAttribute("loggedUser");
 
@@ -347,32 +352,43 @@ public class HomeController {
 
     @GetMapping("/applyJob")
     public String applyJob(
-            @RequestParam String title,
-            @RequestParam String company,
+            @RequestParam int id,
             HttpSession session,
             RedirectAttributes redirectAttributes) {
 
         User user = (User) session.getAttribute("loggedUser");
 
-        if (user == null) {
+        if(user == null){
             return "redirect:/login";
         }
 
-        if (applicationService.alreadyApplied(user.getEmail(), title)) {
+        Job job = jobService.getJobById(id);
+        if(applicationService.alreadyApplied(
+                user.getEmail(),
+                job.getTitle())){
             return "alreadyapplied";
         }
 
-        Application app = new Application();
+        if(job == null){
+            return "redirect:/jobs";
+        }
+
+
         if(user.getResume() == null || user.getResume().isEmpty()){
             return "redirect:/profile";
         }
+
+        Application app = new Application();
+
         app.setUserName(user.getName());
         app.setUserEmail(user.getEmail());
-        app.setJobTitle(title);
-        app.setCompany(company);
+        app.setJobTitle(job.getTitle());
+        app.setCompany(job.getCompany());
         app.setResume(user.getResume());
         app.setStatus("PENDING");
+
         applicationService.save(app);
+
         redirectAttributes.addFlashAttribute(
                 "success",
                 "Application submitted successfully!"
@@ -429,12 +445,25 @@ public class HomeController {
     @GetMapping("/searchJob")
     public String searchJob(
             @RequestParam String title,
-            Model model){
+            Model model,
+            HttpSession session){
+
+        User user =
+                (User) session.getAttribute("loggedUser");
 
         model.addAttribute(
                 "jobs",
                 jobService.searchJobs(title)
         );
+
+        if(user != null){
+            model.addAttribute(
+                    "applications",
+                    applicationService.getApplicationsByUser(
+                            user.getEmail()
+                    )
+            );
+        }
 
         return "jobs";
     }
