@@ -100,10 +100,6 @@ IntelliHire
 
 <img width="1725" height="1031" alt="Screenshot 2026-06-04 113037" src="https://github.com/user-attachments/assets/5b710650-0ba8-4f9c-8d13-374aed27488b" />
 
-### User Dashboard
-
-<img width="1905" height="924" alt="image" src="https://github.com/user-attachments/assets/3c1bcdff-937d-42a7-b670-b0da889381d3" />
-
 ### Admin Dashboard
 
 <img width="1888" height="1013" alt="image" src="https://github.com/user-attachments/assets/05de13e8-5a6d-4b25-9320-e3e599d8f070" />
@@ -114,7 +110,23 @@ IntelliHire
 
 ### Available Jobs
 
-<img width="1762" height="1033" alt="image" src="https://github.com/user-attachments/assets/4b9647a9-b1f4-4527-8f81-0e81065da85d" />
+<img width="1807" height="872" alt="Screenshot 2026-06-29 210906" src="https://github.com/user-attachments/assets/3eece69d-0b26-4076-a05e-5956e15ae6ed" />
+
+### View job in Admin panel
+
+<img width="1917" height="857" alt="image" src="https://github.com/user-attachments/assets/e985aa2e-b69f-45b9-9333-607bf2c5ec8d" />
+
+### Add new job
+
+<img width="1917" height="833" alt="image" src="https://github.com/user-attachments/assets/529a42aa-fdfe-4817-9411-ea8900a9252b" />
+
+### Registered Users
+
+<img width="1845" height="877" alt="image" src="https://github.com/user-attachments/assets/470421af-3872-45a7-95be-1de56e1853e7" />
+
+### User Dashboard
+
+<img width="1905" height="924" alt="image" src="https://github.com/user-attachments/assets/3c1bcdff-937d-42a7-b670-b0da889381d3" />
 
 ### Profile Page
 <img width="1781" height="937" alt="image" src="https://github.com/user-attachments/assets/3511a097-8fde-4ff8-94ce-bbc6f2ddba8e" />
@@ -122,6 +134,24 @@ IntelliHire
 ### My Applications
 
 <img width="1787" height="827" alt="image" src="https://github.com/user-attachments/assets/75308707-718a-4ca0-903a-8b4fdf70b47d" />
+
+### Available Jobs
+
+<img width="1840" height="887" alt="image" src="https://github.com/user-attachments/assets/01dca0a2-ea1d-493a-8647-7bcc3aaeaa77" />
+
+### To view a Selected Job
+
+<img width="1893" height="885" alt="image" src="https://github.com/user-attachments/assets/dfce98fd-eec9-4782-a686-b4561806f212" />
+
+### Prevent Duplicate Applications
+
+<img width="1917" height="802" alt="Screenshot 2026-06-29 212549" src="https://github.com/user-attachments/assets/46795474-00a0-400b-9f40-8670f24cc428" />
+
+### Applocation successful popup Message
+
+<img width="1823" height="782" alt="image" src="https://github.com/user-attachments/assets/1201cf29-31b0-4424-ad8e-6a16f8ff472d" />
+
+
 
 ## Installation & Setup
 
