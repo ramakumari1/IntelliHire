@@ -167,3 +167,13 @@ https://github.com/ramakumari1
 
 Project Repository:
 https://github.com/ramakumari1/IntelliHire
+
+
+7. **Launch the application** by running the Spring Boot application.
+
+8. **Open the application in your web browser.**
+
+> By default, the application is available at `http://localhost:8080`.
+>  If the server port is changed in `application.properties`, use the configured port instead.
+
+ 
